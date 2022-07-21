@@ -16,11 +16,3 @@ ng serve
 Open your browser and go to [localhost:4200](http://localhost:4200)
         
 If you wish to modify the app, open it in your favorite IDE and please do !
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
