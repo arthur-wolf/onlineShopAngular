@@ -1,0 +1,44 @@
+.header {
+  height: 80px;
+  width: 100%;
+  font-size: 16px;
+  text-align: left;
+  overflow: hidden;
+  color: #e3e3e3;
+  background-color: #233142;
+}
+
+h1 {
+  position: relative;
+  left: 20px;
+  float: left;
+}
+
+/* User Icon */
+
+.fa-user {
+  position: relative;
+  font-size: 30px;
+  float: right;
+  margin: 25px;
+}
+
+.fa-user:hover {
+  cursor: pointer;
+  top: -1px;
+}
+
+/* Cart Icon */
+.fa-cart-shopping {
+  position: relative;
+  font-size: 30px;
+  float: right;
+  margin: 25px;
+}
+
+.fa-cart-shopping:hover {
+  cursor: pointer;
+  top: -1px;
+}
+
+

@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'online-shop-angular';
+  private static title = 'ONLINE SHOP';
+
+
+  static getTitle():string {
+    return this.title;
+  }
+
+
 }
