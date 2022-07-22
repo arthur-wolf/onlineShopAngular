@@ -25,7 +25,7 @@ h1 {
 
 .fa-user:hover {
   cursor: pointer;
-  top: -1px;
+  top: -2px;
 }
 
 /* Cart Icon */
@@ -38,7 +38,7 @@ h1 {
 
 .fa-cart-shopping:hover {
   cursor: pointer;
-  top: -1px;
+  top: -2px;
 }
 
 

@@ -16,3 +16,8 @@ ng serve
 Open your browser and go to [localhost:4200](http://localhost:4200)
         
 If you wish to modify the app, open it in your favorite IDE and please do !
+
+## Prototype
+
+This is a preview of what the application should look like :
+![Prototype image for the application](src/assets/prototype.png "Prototype")

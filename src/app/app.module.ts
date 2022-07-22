@@ -5,12 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { CardBlockComponent } from './card-block/card-block.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    BodyComponent
+    BodyComponent,
+    NavMenuComponent,
+    CardBlockComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,12 @@
+.card {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.card-img {
+
+}
+
+.name-price {
+}

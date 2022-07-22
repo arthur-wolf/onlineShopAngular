@@ -8,6 +8,7 @@ html {
 }
 
 body {
+  min-width: 540px;
   height: 100%;
   margin: 0;
   background-color: #e3e3e3;
