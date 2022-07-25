@@ -1,12 +1,36 @@
-.card {
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
+.card-element {
+  width: 264px;
+  height: 336px;
+  margin: 20px;
+  float: left;
+
+  /* shadow */
+  box-shadow: 0 0 10px 5px #bbb;
 }
 
-.card-img {
-
+.card-image {
+  width: 264px;
+  height: 264px;
 }
 
-.name-price {
+.card-name-and-price {
+  position: relative;
+  left: 10px;
+}
+
+
+
+.add-to-cart {
+  background-color: #233142;
+  color: #e3e3e3;
+  width: 100%;
+  height: 28px;
+  border: none;
+}
+
+.add-to-cart:hover {
+  cursor: pointer;
+}
+.add-to-cart:active {
+  background-color: #f95959;
 }

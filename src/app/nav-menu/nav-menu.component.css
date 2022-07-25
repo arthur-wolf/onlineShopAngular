@@ -19,8 +19,8 @@
 }
 
 .menu-element {
-  color: #333;
-  background-color: #EEE;
+  color: #e3e3e3;
+  background-color: #233142;
   display: flex;
   padding: .3em 0;
   height: 2em;
@@ -29,4 +29,3 @@
   list-style-type: none;
   align-content: center;
 }
-
