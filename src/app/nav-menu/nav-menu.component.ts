@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {range} from "rxjs";
 
 @Component({
   selector: 'app-nav-menu',
@@ -7,24 +8,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavMenuComponent implements OnInit {
 
-  menuElements = [
-    "All Categories",
-    "Bread",
-    "Dairy",
-    "Fruits",
-    "Seasonings / Spices",
-    "Vegetables"
+  menuElements : Field[] = [
+    Field.All,
+    Field.Bread,
+    Field.Dairy,
+    Field.Fruits,
+    Field.Seasonings,
+    Field.Vegetables
   ];
+
+  selectedField : Field | undefined = Field.All;
+
 
   constructor() {
   }
 
   ngOnInit(): void {
-    this.selectField("TOUT MGL")
+    this.selectField(Field.All)
   }
 
-  selectField(fieldName: string) {
-    console.log(`You clicked on ${fieldName}`)
+
+
+  selectField(field: Field): void {
+    this.selectedField = field
+    console.log(`You clicked on ${(this.selectedField)}`)
   }
 }
 
+enum Field {
+  All = "All",
+  Bread = "Bread",
+  Dairy = "Dairy",
+  Fruits = "Fruits",
+  Seasonings = "Seasonings",
+  Vegetables = "Vegetables"
+}
