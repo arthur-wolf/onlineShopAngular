@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-.menu-element {
+.menu-element, .menu-element-selected {
   color: #e3e3e3;
   background-color: #233142;
   display: flex;
@@ -12,20 +12,21 @@
   width: 80%;
   text-decoration: none;
   list-style-type: none;
-  align-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .menu-element-selected {
-  cursor: pointer;
-  color: #e3e3e3;
   background-color: #f95959;
-  display: flex;
-  padding: .3em 0;
-  height: 2em;
-  width: 80%;
-  text-decoration: none;
-  list-style-type: none;
-  align-content: center;
+}
+
+
+.menu-element:hover {
+  background-color:#233142CC;
+}
+
+.menu-element-selected:hover {
+  background-color: #f95959CC;
 }
 
 .menu-element-selected:first-child,.menu-element:first-child {
@@ -38,6 +39,7 @@
   border-bottom-right-radius: 4px;
 }
 
-.menu-element:hover {
-  cursor: pointer;
+
+p {
+  margin: 0 15px;
 }
