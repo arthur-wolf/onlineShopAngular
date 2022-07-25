@@ -35,7 +35,7 @@ export class NavMenuComponent implements OnInit {
   }
 }
 
-enum Field {
+export enum Field {
   All = "All",
   Bread = "Bread",
   Dairy = "Dairy",
