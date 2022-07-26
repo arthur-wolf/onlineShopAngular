@@ -8,10 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   private static title = 'ONLINE SHOP';
 
-
   static getTitle():string {
     return this.title;
   }
-
-
 }

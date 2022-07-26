@@ -1,17 +1,4 @@
-.container {
-  height: 100vh;
-  width: 100vw;
-}
-
-.container .navbar {
+.main {
   height: 100%;
-  width: 250px;
-  float: left;
-  background-color: #455d7a;
-}
-
-.container .main {
-  height: 100%;
-  width: 80%;
-  float: left;
+  width: 100%;
 }

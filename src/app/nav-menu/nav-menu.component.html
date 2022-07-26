@@ -1,6 +1,6 @@
 <ul class="menu">
-  <li *ngFor="let element of menuElements" (click)="selectField(element)"
-    [ngClass]="{'menu-element' : element !== selectedField, 'menu-element-selected' : element === selectedField} "
+  <li *ngFor="let element of menuElements" (click)="selectCategory(element)"
+    [ngClass]="{'menu-element' : element !== selectedCategory, 'menu-element-selected' : element === selectedCategory} "
     class="menu-element">
     <p>
       {{element}}

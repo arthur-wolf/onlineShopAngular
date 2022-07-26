@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {range} from "rxjs";
+import { Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-nav-menu',
@@ -8,34 +8,40 @@ import {range} from "rxjs";
 })
 export class NavMenuComponent implements OnInit {
 
-  menuElements : Field[] = [
-    Field.All,
-    Field.Bread,
-    Field.Dairy,
-    Field.Fruits,
-    Field.Seasonings,
-    Field.Vegetables
+  menuElements : Category[] = [
+    Category.All,
+    Category.Bread,
+    Category.Dairy,
+    Category.Fruits,
+    Category.Seasonings,
+    Category.Vegetables
   ];
 
-  selectedField : Field | undefined = Field.All;
+  selectedCategory : Category | undefined = Category.All;
 
 
-  constructor() {
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.selectField(Field.All)
+    this.selectCategory(Category.All)
+    console.log("tttt" + this.router.url);
+
   }
 
+  selectCategory(category: Category): void {
+    this.selectedCategory = category
+    console.log(`You clicked on ${(this.selectedCategory)}`)
 
-
-  selectField(field: Field): void {
-    this.selectedField = field
-    console.log(`You clicked on ${(this.selectedField)}`)
-  }
+    this.router.navigate(
+      ['products/' + this.selectedCategory],
+      {relativeTo: this.route}).then(() => "")
+   }
 }
 
-export enum Field {
+export enum Category {
   All = "All",
   Bread = "Bread",
   Dairy = "Dairy",
