@@ -1,4 +1,16 @@
-.main {
+.page {
+  display: flex;
+  align-items: stretch;
   height: 100%;
   width: 100%;
+}
+
+/* Only to remember it exists if necessary */
+.main {}
+
+.nav {
+  flex-basis: 250px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  background-color: #455d7a;
 }

@@ -7,6 +7,8 @@ import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { CardBlockComponent } from './card-block/card-block.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { CardBlockComponent } from './card-block/card-block.component';
     HeaderComponent,
     BodyComponent,
     NavMenuComponent,
-    CardBlockComponent
+    CardBlockComponent,
+    WelcomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

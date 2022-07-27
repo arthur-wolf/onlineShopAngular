@@ -25,18 +25,14 @@ export class NavMenuComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-    this.selectCategory(Category.All)
-    console.log("tttt" + this.router.url);
-
-  }
+  ngOnInit(): void {}
 
   selectCategory(category: Category): void {
     this.selectedCategory = category
     console.log(`You clicked on ${(this.selectedCategory)}`)
 
     this.router.navigate(
-      ['products/' + this.selectedCategory],
+      ['/products/' + this.selectedCategory],
       {relativeTo: this.route}).then(() => "")
    }
 }
