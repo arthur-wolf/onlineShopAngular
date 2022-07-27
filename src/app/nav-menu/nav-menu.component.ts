@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router, ActivatedRoute, NavigationEnd} from '@angular/router';
+
 
 @Component({
   selector: 'app-nav-menu',
@@ -17,7 +18,8 @@ export class NavMenuComponent implements OnInit {
     Category.Vegetables
   ];
 
-  selectedCategory : Category | undefined = Category.All;
+  searchString: string = "";
+  selectedCategory: Category | undefined = Category.All;
 
 
   constructor(
@@ -32,9 +34,23 @@ export class NavMenuComponent implements OnInit {
     console.log(`You clicked on ${(this.selectedCategory)}`)
 
     this.router.navigate(
-      ['/products/' + this.selectedCategory],
+      ["/products/" + this.selectedCategory],
       {relativeTo: this.route}).then(() => "")
    }
+
+  updateValue(input : string) {
+    this.searchString = input
+    if (input === ""){                                            // Attempt to unmake the buggy part
+      this.router.navigate(                                       // Doesn't quite work but will be fixed
+        ["/products/All"],
+        {relativeTo: this.route}).then(() => "")
+    } else {
+      this.router.navigate(
+        ["/products/All" + this.searchString],
+        {relativeTo: this.route}).then(() => "")
+      console.log(`Query is ${input}`)
+    }
+  }
 }
 
 export enum Category {

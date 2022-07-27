@@ -5,6 +5,7 @@ import {WelcomeComponent} from "./welcome/welcome.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 
 const routes: Routes = [
+  { path: "products/All:searchString", component:BodyComponent},
   { path: "products/:category", component: BodyComponent},
   { path: "products", redirectTo: "products/All", pathMatch: "full"},
   { path: "welcome", component: WelcomeComponent},

@@ -1,9 +1,18 @@
-<ul class="menu">
-  <li *ngFor="let element of menuElements" (click)="selectCategory(element)"
-    [ngClass]="{'menu-element' : element !== selectedCategory, 'menu-element-selected' : element === selectedCategory} "
-    class="menu-element">
-    <p>
-      {{element}}
-    </p>
-  </li>
-</ul>
+<div class="navbar-container">
+  <ul class="menu">
+    <li *ngFor="let element of menuElements" (click)="selectCategory(element)"
+        [ngClass]="{'menu-element' : element !== selectedCategory, 'menu-element-selected' : element === selectedCategory} "
+        class="menu-element">
+      <p>
+        {{element}}
+      </p>
+    </li>
+  </ul>
+
+  <form action="">
+    <input #input
+           (keyup)="updateValue(input.value)"
+           type="text"
+           placeholder="Search for an item">
+  </form>
+</div>
