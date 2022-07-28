@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute, NavigationEnd} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 
 
 @Component({
@@ -10,54 +10,60 @@ import {Router, ActivatedRoute, NavigationEnd} from '@angular/router';
 export class NavMenuComponent implements OnInit {
 
   menuElements : Category[] = [
-    Category.All,
-    Category.Bread,
-    Category.Dairy,
-    Category.Fruits,
-    Category.Seasonings,
-    Category.Vegetables
+    Category.all,
+    Category.bread,
+    Category.dairy,
+    Category.fruits,
+    Category.seasonings,
+    Category.vegetables
   ];
 
   searchString: string = "";
-  selectedCategory: Category | undefined = Category.All;
+  selectedCategory: Category | undefined = Category.all;
 
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
   ) {}
 
-  ngOnInit(): void {}
 
+
+  ngOnInit(): void {
+    this.selectCategory(Category.all);
+  }
+
+  // To move when the user clicks on a category in the menu
   selectCategory(category: Category): void {
     this.selectedCategory = category
-    console.log(`You clicked on ${(this.selectedCategory)}`)
-
     this.router.navigate(
-      ["/products/" + this.selectedCategory],
-      {relativeTo: this.route}).then(() => "")
+      ["/products"],
+      {
+        relativeTo: this.route,
+        queryParams:{category: category},
+        queryParamsHandling: "merge",
+      }).then(() => "")
    }
 
-  updateValue(input : string) {
-    this.searchString = input
-    if (input === ""){                                            // Attempt to unmake the buggy part
-      this.router.navigate(                                       // Doesn't quite work but will be fixed
-        ["/products/All"],
-        {relativeTo: this.route}).then(() => "")
-    } else {
-      this.router.navigate(
-        ["/products/All" + this.searchString],
-        {relativeTo: this.route}).then(() => "")
-      console.log(`Query is ${input}`)
-    }
+  // To update the value of the query in the url when the user writes something in the field and to go there
+  updateValue(input : string): void {
+    this.searchString = input;
+    this.router.navigate(
+      ["/products"],
+      {
+        relativeTo: this.route,
+        queryParams:{query: this.searchString},
+        queryParamsHandling: "merge",
+      })
+      .then(() => "")
   }
 }
 
 export enum Category {
-  All = "All",
-  Bread = "Bread",
-  Dairy = "Dairy",
-  Fruits = "Fruits",
-  Seasonings = "Seasonings",
-  Vegetables = "Vegetables"
+  all = "All",
+  bread = "Bread",
+  dairy = "Dairy",
+  fruits = "Fruits",
+  seasonings = "Seasonings",
+  vegetables = "Vegetables"
 }

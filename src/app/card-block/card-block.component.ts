@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CARDS} from "../cardList";
 import {Card} from "../card";
 import {Category} from "../nav-menu/nav-menu.component";
-import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-card-block',
@@ -11,61 +11,41 @@ import {ActivatedRoute, NavigationEnd, Router} from "@angular/router";
 })
 export class CardBlockComponent implements OnInit {
 
-
   products : Card[] | undefined;
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
   ) {}
 
 
-  // The second part makes that the first one doesn't work anymore, it overwrites it
-  // Need to find a way to make them work together
+
   ngOnInit(): void {
-    this.route.params.subscribe(data => {
-      this.products = this.filterList(CARDS, data["category"]);
+    this.route.queryParams.subscribe(query => {
+      console.log(query["query"])
+      this.products = this.filterProducts(CARDS, query["category"], query["query"]);
     })
 
-    this.router.events.subscribe((val) => {
-      if (val instanceof NavigationEnd) {                                       // If navigation has been successful
-          let searchString = val.url.replace("/products/All", "")       // get only the suffix
-          this.products = this.filterListInput(CARDS, searchString)                         // Filter with suffix
-      }
-    })
-    console.log("URL is " + this.router.url)
   }
 
-  filterList(CARDS: Card[], category: Category) {
-    if (category === Category.All) {
+
+  filterProducts(CARDS: Card[], category: Category, query: string): Card[] {
+    let categoryFiltered = this.filterProductsByCategory(CARDS, category);
+    console.log(this.filterProductsByString(categoryFiltered, query).map(c => c.name))
+    return this.filterProductsByString(categoryFiltered, query)
+  }
+
+  filterProductsByCategory(CARDS: Card[], category: Category) {
+    if (category === Category.all || category === undefined) {
       return CARDS
     }
     return CARDS.filter(card => card.category === category)
   }
 
-  filterListInput(CARDS: Card[], string: string) {
-    let cardNames: string[] = [];     // same as CARDS but only the names
-    let returnedCards: Card[] = [];   // The actual cards we return
-
-    // Initialize a list with all the card's names
-    for (let card of CARDS) {
-      cardNames.push(card.name)
+  filterProductsByString(CARDS: Card[], searchString: string) {
+    if (searchString === "" || searchString === undefined) {
+      return CARDS;
     }
-
-    // For each card, if its name contains the string,
-    // add it to the cards to return
-    // If the string is empty, return all the cards
-    for (let cardName of cardNames) {
-      if (string === "") {
-        returnedCards = CARDS;
-        break;
-      } else if (cardName.includes(string)) {
-        // CARDS and CardNames have the same indexes, let's use them rather
-        // than convert a string back to a Card
-        let indexOfCard =  cardNames.indexOf(cardName);
-        returnedCards.push(CARDS[indexOfCard]);
-      }
-    }
-    return returnedCards;
+    return CARDS
+      .filter(card => card.name.toLowerCase().includes(searchString.toLowerCase()));
   }
 }
