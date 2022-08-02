@@ -3,6 +3,7 @@ import {CARDS} from "../cardList";
 import {Card} from "../card";
 import {Category} from "../nav-menu/nav-menu.component";
 import {ActivatedRoute} from "@angular/router";
+import {CartService} from "../cart.service";
 
 @Component({
   selector: 'app-card-block',
@@ -12,16 +13,16 @@ import {ActivatedRoute} from "@angular/router";
 export class CardBlockComponent implements OnInit {
 
   products : Card[] | undefined;
+  productsAddedToCart: Card[] = [];
 
   constructor(
     private route: ActivatedRoute,
+    private cartService: CartService,
   ) {}
-
 
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(query => {
-      console.log(query["query"])
       this.products = this.filterProducts(CARDS, query["category"], query["query"]);
     })
 
@@ -47,5 +48,12 @@ export class CardBlockComponent implements OnInit {
     }
     return CARDS
       .filter(card => card.name.toLowerCase().includes(searchString.toLowerCase()));
+  }
+
+  addToCart(product: Card) {
+    this.cartService.addProductToCart(product)
+    this.productsAddedToCart.push(product);
+    console.log(`
+    ${product.name} has been added to the cart. Cart contains :${this.productsAddedToCart.map(c => c.name)}.`)
   }
 }

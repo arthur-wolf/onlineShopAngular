@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AppComponent}  from "../app.component";
-import {ActivatedRoute, Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-header',
@@ -9,21 +9,10 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
 
-  title = AppComponent.getTitle();
+  title : string = AppComponent.getTitle();
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-  ) { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
-  goToWelcomePage() {
-    this.router.navigate(
-      [""],
-      {relativeTo: this.route}).then(() => "")
-  }
+  ngOnInit(): void {}
 }
-
 

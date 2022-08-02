@@ -1,0 +1,97 @@
+/* Table stuff */
+
+table {
+  border-spacing: 0;
+}
+
+td {
+  padding: 0;
+  border-image-width: 0;
+  align-self: center;
+}
+
+.totalPrice {
+  font-size: 20px;
+}
+
+td p {
+ text-align: center;
+  position: relative;
+}
+
+.shopping-cart-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.shopping-cart-table-container {
+  align-self: center;
+  margin-top: 25px;
+  background-color: #233142;
+  color: #e3e3e3;
+  border-collapse: collapse;
+  border-radius: 4px;
+
+  box-shadow: 0 0 10px 5px #9a9a9a;
+
+}
+
+h2 {
+  color: #233142;
+}
+
+thead {
+  height: 3em;
+}
+
+th {
+  padding: 0;
+}
+
+tr th {
+  min-width: 150px;
+}
+
+tbody {
+  background-color: #e3e3e3;
+  color: #233142;
+}
+
+img {
+  height: 150px;
+  width: 150px;
+}
+
+td {
+  border: none;
+}
+
+p button {
+  height: 2em;
+  width: 2em;
+  margin-left: 5px;
+  font-weight: 1000;
+}
+
+button {
+  text-decoration: none;
+  list-style-type: none;
+  border-radius: 4px;
+  border: none;
+
+  height: 3em;
+  width: 18em;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  color: #e3e3e3;
+  background-color: #233142;
+
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f95959;
+}

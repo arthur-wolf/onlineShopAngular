@@ -6,7 +6,9 @@
 }
 
 /* Only to remember it exists if necessary */
-.main {}
+.main {
+
+}
 
 .nav {
   flex-basis: 250px;

@@ -5,4 +5,5 @@ export class Card {
   name!: string;
   price: number | undefined;
   category: Category | undefined;
+  quantity!: number;
 }

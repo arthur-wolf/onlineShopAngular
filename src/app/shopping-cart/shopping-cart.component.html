@@ -1,0 +1,42 @@
+<div *ngIf="productsInCart.length != 0" class="shopping-cart-page-container">
+
+
+  <h2> Your cart </h2>
+
+  <table class="shopping-cart-table-container">
+    <thead>
+      <tr>
+        <th> Product </th>
+        <th> Name </th>
+        <th> Category </th>
+        <th> Price </th>
+        <th> Quantity </th>
+        <th> Total </th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of productsInCart">
+      <th><img src="{{item.img}}" alt="" class="cart-product-image"></th>
+      <td><p>{{ item.name }}</p></td>
+      <td><p>{{ item.category }}</p></td>
+      <td><p>{{ item.price }} &euro;</p></td>
+      <td><p>
+          {{ item.quantity }}
+          <button (click)="addToQuantity(item)"> + </button>
+          <button (click)="removeToQuantity(item)"> - </button>
+        </p></td>
+      <td><p>{{ item.quantity! * item.price! }} &euro;</p></td>
+    </tr>
+    </tbody>
+  </table>
+  <p class="totalPrice">The total price of your cart is {{ totalPrice }} &euro;</p>
+
+  <button routerLink="/products"> Go back to Products </button>
+</div>
+
+<div *ngIf="productsInCart.length === 0" class="shopping-cart-page-container">
+  <h2> Your cart is empty, please have a look at our products ! </h2>
+  <button routerLink="/products"> Go back to Products </button>
+</div>
+
+

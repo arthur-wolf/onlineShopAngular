@@ -9,7 +9,7 @@
             <p>{{product.name}} <br> ${{product.price}}</p>
           </div>
           <div>
-            <button class="add-to-cart" type="button">
+            <button (click)="addToCart(product)" class="add-to-cart" type="button">
               ADD TO CART
             </button>
           </div>
